@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 let connect = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'Qdatasd123123',
-	database: 'clone_instagram',
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: process.env.DB_NAME,
 });
 
 connect.connect((err) => {
