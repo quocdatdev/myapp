@@ -1,15 +1,8 @@
+// eslint-disable-next-line new-cap
 const router = require('express').Router();
-const conn = require('../database/db');
-
-router.get('/getAll', (req, res) => {
-	conn.query('SELECT * FROM clone_instagram.users', (err, rows) => {
-		if(err) {
-			res.status(500).send({
-				error: 'Failed'
-			});
-		}
-		res.json(rows);
-	});
-});
-
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
+// const conn = require('../config/db.config');
+router.use('/', require('./user'));
+router.use('/', require('./login'));
 module.exports = router;
